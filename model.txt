@@ -1,0 +1,140 @@
+table user {
+  id int pk
+  username char 
+  password char
+  first_name char
+  last_name char
+  email email
+  is_staff bool
+  is_active bool
+  is_superuser bool
+}
+
+table services {
+  id int pk
+  image image 
+  name char 
+  content char
+  features mmk ///features
+  S_category mmk ////S_category
+  PDFfile file 
+  DOCfile file 
+  status bool 
+  created_at datetime
+  updated_at datetime
+}
+
+table s_category {
+  id int pk 
+  name char
+  created_at datetime
+  updated_at datetime
+}
+
+table product {
+  id int pk 
+  name char 
+  content char 
+  category mmk ////category 
+  client char
+  product_Url char
+  status bool 
+  created_at datetime
+  updated_at datetime
+}
+
+table category {
+  id int pk 
+  name char 
+}
+
+table blog {
+  id int pk
+  name char
+  bloger fk ///employees
+  b_category mmk ////b_category
+  tags mmk ////tags
+  decription_1 char
+  title_2 char
+  description_2 char
+  title_3 char
+  description_3 char
+  Quotes char
+  image_2 image
+  status bool 
+  created_at datetime
+  updated_at datetime
+}
+
+table b_category {
+  id int pk 
+  name char
+  created_at datetime
+  updated_at datetime
+}
+
+table tags {
+  id int pk
+  name char
+  created_at datetime
+  updated_at datetime
+}
+
+table Employees {
+  id int pk
+  user fk 
+  image image
+  skills mmk ////skills
+  content char
+  twitter char
+  facebook char
+  instagram char
+  linkedin char
+  status bool 
+  created_at datetime
+  updated_at datetime
+}
+
+table skills {
+  id int pk
+  name char
+  created_at datetime
+  updated_at datetime
+}
+
+table features {
+  id int pk
+  name char
+  content char 
+  options mmk ////options
+  status bool 
+  created_at datetime
+  updated_at datetime
+}
+
+table options {
+  id int pk
+  name char
+  created_at datetime
+  updated_at datetime
+}
+
+Ref: "Employees"."user" < "user"."id"
+
+Ref: "Employees"."skills" < "skills"."id"
+
+Ref: "features"."options" < "options"."id"
+
+
+
+Ref: "services"."S_category" < "s_category"."id"
+
+Ref: "services"."features" < "features"."id"
+
+Ref: "product"."category" < "category"."id"
+
+Ref: "blog"."bloger" < "Employees"."id"
+
+Ref: "blog"."b_category" < "b_category"."id"
+
+Ref: "blog"."tags" < "tags"."id"
