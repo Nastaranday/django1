@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 # Create your models here.
 
 class Skills(models.Model):
@@ -68,6 +69,7 @@ class Blogs(models.Model):
     quoets = models.TextField(blank=True)
     status = models.BooleanField(default=False)
     image_2 = models.ImageField(upload_to='blog', default='blog2.jp')
+    schedule = models.DateTimeField(default=timezone.now)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
     
