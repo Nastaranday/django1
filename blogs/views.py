@@ -15,3 +15,10 @@ def blogs_detail(request):
         'd_blogs' : d_blogs,
     }
     return render(request, 'blogs/blog-details.html', context = context)
+
+def teams(request):
+    employees = Employees.objects.filter(status = True)
+    context = {
+        'employees' : employees
+    }
+    return render(request, 'blogs/team.html', context=context)

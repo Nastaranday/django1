@@ -1,8 +1,10 @@
 from django.urls import path
 from .views import product,product_detail,price,comments
 
+app_name = 'product'
+
 urlpatterns = [
-    path('', product),
+    path('', product, name = 'products'),
     path('p_detail',product_detail),
-    path('price',price),
+    path('price',price, name = 'prices'),
 ]

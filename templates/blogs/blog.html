@@ -23,11 +23,10 @@
     <section id="blog-posts" class="blog-posts section">
 
       <div class="container">
+        {% for blog in blogs %}
         <div class="row gy-4">
-
           <div class="col-lg-4">
             <article>
-              {% for blog in blogs %}
               <div class="post-img">
                 <img src={{blog.image_1.url}} alt="" class="img-fluid">
               </div>
@@ -47,10 +46,9 @@
                   </p>
                 </div>
               </div>
-              {% endfor %}
             </article>
           </div><!-- End post list item -->
-
+        {% endfor %}
         </div>
       </div>
 
