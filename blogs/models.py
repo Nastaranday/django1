@@ -16,7 +16,7 @@ class Skills(models.Model):
         
 class Employees(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='employess', default='employee.jpg')
+    image = models.ImageField(upload_to='employees', default='employee.jpg')
     content = models.TextField(default='has good talent and knowledge')
     skills = models.ManyToManyField(Skills)
     twitter = models.CharField(max_length=120, blank=True)
@@ -59,7 +59,7 @@ class Blogs(models.Model):
     name = models.CharField(max_length=100)
     image_1 = models.ImageField(upload_to='blogs', default='blog.jpg')
     bloger = models.ForeignKey(Employees, on_delete=models.CASCADE)
-    b_category = models.ManyToManyField(B_category)
+    b_category = models.ManyToManyField(B_category, related_name='blogs')
     tags = models.ManyToManyField(Tags)
     description_1 = models.TextField(default='In these days all people need to know')
     title_2 = models.CharField(max_length=120, blank=True, default='important')

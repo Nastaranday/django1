@@ -15,6 +15,7 @@ class Options(models.Model):
     
 class Features(models.Model):
     name = models.CharField(max_length=120)
+    image = models.ImageField(default='feature.svg', upload_to='features')
     content = models.TextField(blank=True)
     options = models.ManyToManyField(Options)
     status = models.BooleanField(default=False)
@@ -69,7 +70,6 @@ class Services(models.Model):
         
 class Attribute(models.Model):
     name = models.CharField(max_length=100)
-    status = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
