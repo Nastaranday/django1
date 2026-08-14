@@ -23,32 +23,37 @@
     <section id="blog-posts" class="blog-posts section">
 
       <div class="container">
-        {% for blog in blogs %}
         <div class="row gy-4">
+
+          {% for blog in blogs %}
           <div class="col-lg-4">
             <article>
+
               <div class="post-img">
                 <img src={{blog.image_1.url}} alt="" class="img-fluid">
               </div>
+
               {% for category in blog.b_category.all %}
-              <p class="post-category">{{category.name}}</p>
+              <li="post-category">{{category.name}},</li>
               {% endfor %}
+
               <h2 class="title">
-                <a href="blog-details.html">{{blog.name}}</a>
+                <a href={% url 'blogs:b_details' id=blog.id %}>{{blog.name}}</a>
               </h2>
 
               <div class="d-flex align-items-center">
-                <img src={{blog.bloger.image.url}} alt="" class="img-fluid post-author-img flex-shrink-0">
+                <img src={{blog.employees.image.url}} alt="" class="img-fluid post-author-img flex-shrink-0">
                 <div class="post-meta">
-                  <p class="post-author">{{blog.bloger.user.username}}</p>
+                  <p class="post-author">{{blog.employees.user.username}}</p>
                   <p class="post-date">
                     <time datetime="2022-01-01">{{blog.schedule}}</time>
                   </p>
                 </div>
               </div>
+
             </article>
           </div><!-- End post list item -->
-        {% endfor %}
+          {% endfor %}
         </div>
       </div>
 

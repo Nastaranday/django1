@@ -59,7 +59,7 @@
           <li class="dropdown"><a href="#"><span>Category</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               {% for category in p_category %}
-              <li><a href="#">{{category.name}}</a></li>
+              <li><a href={% url 'product:p_category' p_category=category.name %}>{{category.name}}</a></li>
               {% endfor %}
             </ul>
           </li>

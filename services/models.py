@@ -10,7 +10,7 @@ class Options(models.Model):
     def __str__(self):
         return self.name
     
-    class Mata:
+    class Meta:
         ordering = ('created_at',)
     
 class Features(models.Model):
@@ -25,7 +25,7 @@ class Features(models.Model):
     def __str__(self):
         return self.name
     
-    class Mata:
+    class Meta:
         ordering = ('created_at',)
         
 class S_category(models.Model):
@@ -36,7 +36,7 @@ class S_category(models.Model):
     def __str__(self):
         return self.name
     
-    class Mata:
+    class Meta:
         ordering = ('created_at',)
 
 class Property(models.Model):
@@ -47,7 +47,7 @@ class Property(models.Model):
     def __str__(self):
         return self.name
     
-    class Mata:
+    class Meta:
         ordering = ('created_at',)
         
 class Services(models.Model):
@@ -65,7 +65,7 @@ class Services(models.Model):
     def __str__(self):
         return self.name
     
-    class Mata:
+    class Meta:
         ordering = ('created_at',)
         
 class Attribute(models.Model):

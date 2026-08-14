@@ -11,7 +11,7 @@ class Skills(models.Model):
     def __str__(self):
         return self.name
     
-    class Mata:
+    class Meta:
         ordering = ('created_at',)
         
 class Employees(models.Model):
@@ -30,7 +30,7 @@ class Employees(models.Model):
     def __str__(self):
         return self.user.username
     
-    class Mata:
+    class Meta:
         ordering = ('created_at',)
 
 class B_category(models.Model):
@@ -52,21 +52,24 @@ class Tags(models.Model):
     def __str__(self):
         return self.name
     
-    class Mata:
+    class Meta:
         ordering = ('created_at',)
 
 class Blogs(models.Model):
     name = models.CharField(max_length=100)
     image_1 = models.ImageField(upload_to='blogs', default='blog.jpg')
-    bloger = models.ForeignKey(Employees, on_delete=models.CASCADE)
+    employees = models.ForeignKey(Employees, on_delete=models.CASCADE)
     b_category = models.ManyToManyField(B_category, related_name='blogs')
     tags = models.ManyToManyField(Tags)
     description_1 = models.TextField(default='In these days all people need to know')
-    title_2 = models.CharField(max_length=120, blank=True, default='important')
     description_2 = models.TextField(default='this is really important', blank=True)
-    title_3 = models.CharField(max_length=120, blank=True, default='focus') 
-    description_3 = models.TextField(default='', blank=True)
     quoets = models.TextField(blank=True)
+    description_3 = models.TextField(default='', blank=True)
+    title_2 = models.CharField(max_length=120, blank=True, default='important')
+    description_4 = models.TextField(default='', blank=True)
+    title_3 = models.CharField(max_length=120, blank=True, default='focus') 
+    description_5 = models.TextField(default='', blank=True)
+    description_6 = models.TextField(default='', blank=True)
     status = models.BooleanField(default=False)
     image_2 = models.ImageField(upload_to='blog', default='blog2.jp')
     schedule = models.DateTimeField(default=timezone.now)
@@ -76,6 +79,6 @@ class Blogs(models.Model):
     def __str__(self):
         return self.name
     
-    class Mata:
+    class Meta:
         ordering = ('created_at',)
     

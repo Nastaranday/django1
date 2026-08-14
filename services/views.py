@@ -15,7 +15,11 @@ def services(request):
     }
     return render(request, 'services/services.html', context = context)
 
-def services_detail(request):
-    return render(request, 'services/service-details.html')
+def services_detail(request,id):
+    s_details = Services.objects.get(id=id)
+    context = {
+        's_details' :  s_details,
+    }
+    return render(request, 'services/service-details.html', context=context)
                   
                   
