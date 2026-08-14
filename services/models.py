@@ -53,7 +53,9 @@ class Property(models.Model):
 class Services(models.Model):
     name = models.CharField(max_length=120)
     image = models.ImageField(upload_to='services', default='service.jpg')
-    content = models.TextField(default='its really helpful for individuals')
+    content1 = models.TextField(default='its really helpful for individuals')
+    content2 = models.TextField(default='')
+    content3 = models.TextField(default='')
     property = models.ManyToManyField(Property)
     s_category = models.ManyToManyField(S_category)
     PDF_file = models.FileField(upload_to='documents', blank=True)

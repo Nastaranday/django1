@@ -32,7 +32,7 @@
               <h4>Serices List</h4>
               <div class="services-list">
                 {% for category in s_details.s_category.all %}
-                <a href="#"><i class="bi bi-arrow-right-circle"></i><span>{{category.name}}</span></a>
+                <a href={% url 'services:s_category' s_category=category.name %}><i class="bi bi-arrow-right-circle"></i><span>{{category.name}}</span></a>
                 {% endfor %}
               </div>
             </div><!-- End Services List -->
@@ -42,9 +42,13 @@
               <div class="download-catalog">
                 {% if s_details.PDF_file %}
                 <a href={{s_details.PDF_file.url}}><i class="bi bi-filetype-pdf"></i><span>Catalog PDF</span></a>
+                {% else %}
+                <a href='#'><i class="bi bi-filetype-pdf"></i><span>Catalog PDF</span></a>
                 {% endif %}
                 {% if s_details.DOC_file%}
                 <a href={{s_details.DOC_file.url}}><i class="bi bi-file-earmark-word"></i><span>Catalog DOC</span></a>
+                {% else %}
+                <a href='#'><i class="bi bi-file-earmark-word"></i><span>Catalog DOC</span></a>
                 {% endif %}
               </div>
             </div><!-- End Services List -->
@@ -62,18 +66,18 @@
             <img src={{s_details.image.url}} alt="" class="img-fluid services-img">
             <h3>{{s_details.name}}</h3>
             <p>
-              {{s_details.content}}
-            </p>
+              {{s_details.content1}}
+            <p>
+
             <ul>
-              <li><i class="bi bi-check-circle"></i> <span>Aut eum totam accusantium voluptatem.</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Assumenda et porro nisi nihil nesciunt voluptatibus.</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea</span></li>
+              {% for property in s_details.property.all %}
+              <li><i class="bi bi-check-circle"></i> <span>{{property.name}}</span></li>
+              {% endfor %}
             </ul>
             <p>
-              Est reprehenderit voluptatem necessitatibus asperiores neque sed ea illo. Deleniti quam sequi optio iste veniam repellat odit. Aut pariatur itaque nesciunt fuga.
-            </p>
+              {{s_details.content2}}
             <p>
-              Sunt rem odit accusantium omnis perspiciatis officia. Laboriosam aut consequuntur recusandae mollitia doloremque est architecto cupiditate ullam. Quia est ut occaecati fuga. Distinctio ex repellendus eveniet velit sint quia sapiente cumque. Et ipsa perferendis ut nihil. Laboriosam vel voluptates tenetur nostrum. Eaque iusto cupiditate et totam et quia dolorum in. Sunt molestiae ipsum at consequatur vero. Architecto ut pariatur autem ad non cumque nesciunt qui maxime. Sunt eum quia impedit dolore alias explicabo ea.
+              {{s_details.content3}}
             </p>
           </div>
 
